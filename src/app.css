@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+    --font-sans: "Baloo Da 2 Variable", system-ui, sans-serif;
+    --font-serif: "Noto Serif Bengali Variable", serif;
+}
