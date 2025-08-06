@@ -19,11 +19,21 @@
 		</div>
 
 		<!-- Title -->
-		<h1
-			class="mb-4 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-4xl font-bold text-transparent md:text-5xl"
-		>
-			যন্ত্রকথা
-		</h1>
+		<div class="mb-4 flex items-center justify-center gap-4">
+			<h1
+				class="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-4xl font-bold text-transparent md:text-5xl"
+			>
+				যন্ত্রকথা
+			</h1>
+			<span class="text-lg text-gray-600 md:text-xl">
+				by <a
+					href="https://sh4jid.me"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="font font-semibold underline hover:text-gray-800">@sh4jid</a
+				>
+			</span>
+		</div>
 		<p class="mb-8 text-xl text-gray-600 md:text-2xl">কোডিং, এআই ও প্রযুক্তির গল্প</p>
 
 		<!-- Subtitle -->
@@ -45,7 +55,7 @@
 				<span class="mr-3">
 					<SiFacebook size={24} />
 				</span>
-				আমাদের ফেসবুক পেজে যান
+				ফেসবুক পেজে যান
 			</a>
 		</div>
 
