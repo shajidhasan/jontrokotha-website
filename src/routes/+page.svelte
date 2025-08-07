@@ -50,7 +50,12 @@
 
 			<p>
 				Our page is powered by an automated script that finds, summarizes, and posts news directly
-				to our Facebook page. The script will be made open-source soon!
+				to our Facebook page. The script is open-source and available on <a
+					href="https://github.com/shajidhasan/fb-news-bot"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="underline hover:text-gray-800">GitHub</a
+				>!
 			</p>
 		</div>
 
