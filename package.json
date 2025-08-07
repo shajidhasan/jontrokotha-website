@@ -19,6 +19,7 @@
 		"@sveltejs/adapter-static": "^3.0.8",
 		"@sveltejs/kit": "^2.22.0",
 		"@sveltejs/vite-plugin-svelte": "^6.0.0",
+		"@tailwindcss/forms": "^0.5.10",
 		"@tailwindcss/typography": "^0.5.15",
 		"@tailwindcss/vite": "^4.0.0",
 		"eslint": "^9.18.0",
@@ -42,6 +43,8 @@
 	},
 	"dependencies": {
 		"@fontsource-variable/inter": "^5.2.6",
-		"@icons-pack/svelte-simple-icons": "^6.4.0"
+		"@icons-pack/svelte-simple-icons": "^6.4.0",
+		"@lucide/svelte": "^0.537.0",
+		"svelte-5-french-toast": "^2.0.6"
 	}
 }
