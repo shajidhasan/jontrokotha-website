@@ -43,8 +43,9 @@
               The <strong> tag gives the project name strong importance, 
               indicating it's a key term. 
             -->
-				<strong>Jontrokotha</strong>, which translates to "Tech Tales," is a social media platform
-				dedicated to making technology news accessible to the Bengali speakers.
+				<strong>Jontrokotha</strong>, which translates to "Machine Stories or Tech Tales," is a
+				social media platform dedicated to making technology news accessible to the Bengali
+				speakers.
 			</p>
 
 			<p>
