@@ -57,7 +57,7 @@
 			<!-- Facebook Link -->
 			<div class="mb-8">
 				<a
-					href="https://facebook.com/jontrokotha"
+					href="https://facebook.com/jontrokotha.live"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="inline-flex items-center rounded-lg bg-blue-600 px-8 py-4 font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-blue-700 hover:shadow-xl"
