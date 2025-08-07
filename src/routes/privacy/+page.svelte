@@ -1,6 +1,6 @@
 <svelte:head>
-	<title>Privacy Policy - যন্ত্রকথা</title>
-	<meta name="description" content="Privacy Policy for যন্ত্রকথা website" />
+	<title>Privacy Policy - Jontrokotha</title>
+	<meta name="description" content="Privacy Policy for Jontrokotha website" />
 </svelte:head>
 
 <main class="min-h-screen bg-gray-50 py-12">
@@ -16,9 +16,9 @@
 			<div class="prose prose-lg max-w-none">
 				<h2>Introduction</h2>
 				<p>
-					Welcome to যন্ত্রকথা (Jontrokotha). We respect your privacy and are committed to
-					protecting your personal information. This Privacy Policy explains how we collect, use,
-					and safeguard your information when you visit our website.
+					Welcome to Jontrokotha. We respect your privacy and are committed to protecting your
+					personal information. This Privacy Policy explains how we collect, use, and safeguard your
+					information when you visit our website.
 				</p>
 
 				<h2>Information We Collect</h2>

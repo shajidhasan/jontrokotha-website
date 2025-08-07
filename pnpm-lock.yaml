@@ -8,10 +8,7 @@ importers:
 
   .:
     dependencies:
-      '@fontsource-variable/baloo-da-2':
-        specifier: ^5.2.6
-        version: 5.2.6
-      '@fontsource-variable/noto-serif-bengali':
+      '@fontsource-variable/inter':
         specifier: ^5.2.6
         version: 5.2.6
       '@icons-pack/svelte-simple-icons':
@@ -288,11 +285,8 @@ packages:
     resolution: {integrity: sha512-Ul5l+lHEcw3L5+k8POx6r74mxEYKG5kOb6Xpy2gCRW6zweT6TEhAf8vhxGgjhqrd/VO/Dirhsb+1hNpD1ue9hw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@fontsource-variable/baloo-da-2@5.2.6':
-    resolution: {integrity: sha512-weaOh34eosIYQC8LcBAFZzRUoFnxLiGU6mTv1I/E0DfMEUKVWkAljZM06kuhlsmhvB2WV4AYXY/NTEdVpq74lg==}
-
-  '@fontsource-variable/noto-serif-bengali@5.2.6':
-    resolution: {integrity: sha512-whFQrCs2O8r7h964/YbP/hum59lrbQQjcZcsJ0LzDXmOTEOn+z5bqKh6lp774Yf8Iunk8UXnaFHLl1tn2H8UOg==}
+  '@fontsource-variable/inter@5.2.6':
+    resolution: {integrity: sha512-jks/bficUPQ9nn7GvXvHtlQIPudW7Wx8CrlZoY8bhxgeobNxlQan8DclUJuYF2loYRrGpfrhCIZZspXYysiVGg==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -1597,9 +1591,7 @@ snapshots:
       '@eslint/core': 0.15.1
       levn: 0.4.1
 
-  '@fontsource-variable/baloo-da-2@5.2.6': {}
-
-  '@fontsource-variable/noto-serif-bengali@5.2.6': {}
+  '@fontsource-variable/inter@5.2.6': {}
 
   '@humanfs/core@0.19.1': {}
 

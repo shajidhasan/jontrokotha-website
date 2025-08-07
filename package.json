@@ -41,8 +41,7 @@
 		]
 	},
 	"dependencies": {
-		"@fontsource-variable/baloo-da-2": "^5.2.6",
-		"@fontsource-variable/noto-serif-bengali": "^5.2.6",
+		"@fontsource-variable/inter": "^5.2.6",
 		"@icons-pack/svelte-simple-icons": "^6.4.0"
 	}
 }

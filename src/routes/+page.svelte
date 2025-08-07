@@ -4,64 +4,74 @@
 </script>
 
 <svelte:head>
-	<title>যন্ত্রকথা - কোডিং, এআই ও প্রযুক্তির গল্প</title>
+	<title>Jontrokotha - Tales of Coding, AI, and Tech</title>
 	<meta
 		name="description"
-		content="কোডিং, এআই আর টেক দুনিয়ার সব নতুন খবর এখন আমাদের ফেসবুক পেজে!"
+		content="Stay updated with the latest news in coding, AI, and tech on our Facebook page!"
 	/>
 </svelte:head>
 
-<main class="flex min-h-screen items-center justify-center bg-gray-50">
-	<div class="mx-auto max-w-2xl px-6 text-center">
+<main class="flex min-h-screen items-center justify-center bg-gray-50 py-12">
+	<div class="mx-auto max-w-2xl px-6">
 		<!-- Logo -->
 		<div class="mb-8">
-			<img src={logo} alt="যন্ত্রকথা" class="mx-auto h-24 w-24 rounded-xl object-contain" />
+			<img src={logo} alt="Jontrokotha" class="mx-auto h-24 w-24 rounded-xl object-contain" />
 		</div>
 
 		<!-- Title -->
-		<div class="mb-4 flex items-center justify-center gap-4">
+		<div class="mb-4 flex items-end justify-center gap-2">
 			<h1
-				class="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-4xl font-bold text-transparent md:text-5xl"
+				class="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-4xl font-medium tracking-tighter text-transparent md:text-5xl"
 			>
-				যন্ত্রকথা
+				Jontrokotha
 			</h1>
 			<span class="text-lg text-gray-600 md:text-xl">
 				by <a
 					href="https://sh4jid.me"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="font font-semibold underline hover:text-gray-800">@sh4jid</a
+					class="underline hover:text-gray-800">@sh4jid</a
 				>
 			</span>
 		</div>
-		<p class="mb-8 text-xl text-gray-600 md:text-2xl">কোডিং, এআই ও প্রযুক্তির গল্প</p>
+		<p class="mb-8 text-center text-xl text-gray-600 md:text-2xl">Tales of Coding, AI, and Tech</p>
 
 		<!-- Subtitle -->
 		<div class="mx-auto prose prose-lg mb-12">
-			<p class="font-serif leading-relaxed text-balance text-gray-700">
-				কোডিং, এআই আর টেক দুনিয়ার সব নতুন খবর এখন আমাদের ফেসবুক পেজে! আপনিও যদি প্রযুক্তি
-				ভালোবাসেন, থাকুন যন্ত্রগল্পের সাথে।
+			<p>
+				<!-- 
+              The <strong> tag gives the project name strong importance, 
+              indicating it's a key term. 
+            -->
+				<strong>Jontrokotha</strong>, which translates to "Tech Tales," is a social media platform
+				dedicated to making technology news accessible to the Bengali speakers.
+			</p>
+
+			<p>
+				Our page is powered by an automated script that finds, summarizes, and posts news directly
+				to our Facebook page. The script will be made open-source soon!
 			</p>
 		</div>
 
-		<!-- Facebook Link -->
-		<div class="mb-8">
-			<a
-				href="https://facebook.com/JontrokothaLive"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="inline-flex items-center rounded-lg bg-blue-600 px-8 py-4 font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-blue-700 hover:shadow-xl"
-			>
-				<span class="mr-3">
-					<SiFacebook size={24} />
-				</span>
-				ফেসবুক পেজে যান
-			</a>
-		</div>
-
-		<!-- Privacy Policy Link -->
-		<div class="text-sm text-gray-500">
-			<a href="/privacy" class="underline hover:text-gray-700">Privacy Policy</a>
+		<div class="flex flex-col items-center">
+			<!-- Facebook Link -->
+			<div class="mb-8">
+				<a
+					href="https://facebook.com/jontrokotha"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-flex items-center rounded-lg bg-blue-600 px-8 py-4 font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-blue-700 hover:shadow-xl"
+				>
+					<span class="mr-3">
+						<SiFacebook size={24} />
+					</span>
+					Visit Facebook Page
+				</a>
+			</div>
+			<!-- Privacy Policy Link -->
+			<div class="text-sm text-gray-500">
+				<a href="/privacy" class="underline hover:text-gray-700">Privacy Policy</a>
+			</div>
 		</div>
 	</div>
 </main>
