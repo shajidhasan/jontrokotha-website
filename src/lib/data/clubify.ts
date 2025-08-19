@@ -37,7 +37,7 @@ export const clubs = [
     "CT Pichhano Club (CTPC)",
     "ChatGPT Users Club (CGC)",
     "Reels Watchers Association (RWA)",
-    "Proxy Dish Association (PDA)"
+    "Proxy Dish Association (PDA)",
 ]
 
 export const getRandomDesignation = () => {

@@ -15,8 +15,6 @@
 	import confetti from 'canvas-confetti';
 	import { toPng } from 'html-to-image';
 	import { slugify } from '$lib/utilities';
-	import { PUBLIC_CLUBIFY_API_BASE } from '$env/static/public';
-	import { goto } from '$app/navigation';
 
 	interface Props {
 		data: PhotocardData;
@@ -39,12 +37,19 @@
 
 	let randomizing = $state(false);
 	let selectedTemplate = $derived(Math.floor(Math.random() * templates.length));
-	let postingToFacebook = $state(false);
+	let sharing = $state(false);
 
 	const Template = $derived(templates[selectedTemplate]);
 
 	const downloadCard = async () => {
 		if (!photocardDiv) return;
+
+		const canUseDownloadAttr = 'download' in document.createElement('a');
+
+		if (!canUseDownloadAttr) {
+			alert('Downloading is not supported in your browser. Please try again with Google Chrome.');
+			return;
+		}
 
 		const dataUrl = await toPng(photocardDiv, {
 			quality: 1.0,
@@ -54,17 +59,24 @@
 				transformOrigin: 'top left'
 			}
 		});
+
 		const link = document.createElement('a');
 		link.href = dataUrl;
 		link.download = `${slugify(data.name)}-${slugify(data.club)}.png`;
 		link.click();
 	};
 
-	const onPostToFacebook = async () => {
+	const onShare = async () => {
 		if (!photocardDiv) return;
 
+		// Check if Web Share API is available
+		if (!navigator.share) {
+			alert('You must use Google Chrome browser to share this image.');
+			return;
+		}
+
 		try {
-			postingToFacebook = true;
+			sharing = true;
 			const dataUrl = await toPng(photocardDiv, {
 				quality: 1.0,
 				pixelRatio: 2,
@@ -74,30 +86,26 @@
 				}
 			});
 
-			const response = await fetch(`${PUBLIC_CLUBIFY_API_BASE}/post-to-jontrokotha`, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({
-					name: data.name,
-					club: data.club,
-					photo: dataUrl
-				})
+			// Convert data URL to blob
+			const response = await fetch(dataUrl);
+			const blob = await response.blob();
+			const file = new File([blob], `${slugify(data.name)}-${slugify(data.club)}.png`, {
+				type: 'image/png'
 			});
 
-			if (!response.ok) {
-				alert('Failed to post to Facebook');
-				return;
-			}
-			const jsonData = await response.json();
+			// Share using Web Share API
+			await navigator.share({
+				title: 'My Clubify Result',
+				text: 'Check out which club you belong to at: https://jontrokotha.live/clubify',
+				files: [file]
+			});
 
-			postingToFacebook = false;
-
-			goto(`/clubify/${jsonData.post_id}`);
+			sharing = false;
 		} catch (error) {
-			postingToFacebook = false;
-			alert('Failed to post to Facebook');
+			sharing = false;
+			if (error instanceof Error && error.name !== 'AbortError') {
+				alert('Failed to share the image. Please try again.');
+			}
 		}
 	};
 
@@ -193,11 +201,11 @@
 			<div class="mt-6 space-y-3">
 				<!-- Primary CTA -->
 				<button
-					onclick={onPostToFacebook}
+					onclick={onShare}
 					class="group flex w-full items-center justify-center gap-3 rounded-full bg-indigo-600 px-4 py-3 text-lg text-sm font-medium text-white shadow-lg ring-1 shadow-indigo-600/20 ring-black/5 transition-all duration-200 hover:bg-indigo-700 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-indigo-500/40 focus-visible:outline-none md:text-lg"
-					disabled={postingToFacebook}
+					disabled={sharing}
 				>
-					{#if postingToFacebook}
+					{#if sharing}
 						<LoaderIcon class="h-4 w-4 animate-spin" />
 					{:else}
 						<svg
@@ -208,11 +216,11 @@
 						>
 							<path
 								fill="currentColor"
-								d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"
+								d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92S19.61 16.08 18 16.08z"
 							/></svg
 						>
 					{/if}
-					<span> Post to Jontrokotha Facebook Page </span>
+					<span> Share Your Result </span>
 				</button>
 
 				<!-- Secondary row: randomize + subtle download link -->

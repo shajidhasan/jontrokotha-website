@@ -5,6 +5,7 @@
 	import LoaderIcon from '@lucide/svelte/icons/loader';
 	import CheckIcon from '@lucide/svelte/icons/check';
 	import UploadCloudIcon from '@lucide/svelte/icons/upload-cloud';
+	import { slide } from 'svelte/transition';
 
 	interface Props {
 		name: string;
@@ -143,6 +144,12 @@
 						<span> ✨ Let's Go! </span>
 					{/if}
 				</button>
+
+				{#if isLoading}
+					<div transition:slide class="mt-4 text-center text-sm text-balance text-zinc-500">
+						We're running on a cheap server. Please give us a few seconds.
+					</div>
+				{/if}
 			</form>
 		</div>
 	</div>
