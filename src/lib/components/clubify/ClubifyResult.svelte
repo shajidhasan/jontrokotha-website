@@ -138,7 +138,6 @@
 
 	const onResize = () => {
 		if (photocardDiv && photocardContainerDiv) {
-			console.log('onResize');
 			// Apply CSS transform scale to fit the parent
 			const parentWidth = photocardContainerDiv.clientWidth;
 			console.log(parentWidth);
