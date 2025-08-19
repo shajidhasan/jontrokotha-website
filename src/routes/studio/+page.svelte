@@ -245,7 +245,7 @@
 						<button
 							type="button"
 							onclick={togglePasswordVisibility}
-							class="absolute top-1/2 right-3 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+							class="-tranzinc-y-1/2 absolute top-1/2 right-3 text-gray-500 hover:text-gray-700"
 						>
 							{#if showPassword}
 								<EyeOff class="h-4 w-4" />

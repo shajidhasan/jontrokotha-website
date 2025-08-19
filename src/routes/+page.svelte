@@ -11,7 +11,17 @@
 	/>
 </svelte:head>
 
-<main class="flex min-h-screen items-center justify-center bg-gray-50 py-12">
+<div class="w-full bg-violet-600 text-white">
+	<a
+		href="/clubify"
+		class="mx-auto block max-w-2xl px-6 py-2.5 text-center font-medium hover:underline"
+		aria-label="Find out which club you belong to - Clubify"
+	>
+		Find out which club you belong to - Clubify
+	</a>
+</div>
+
+<main class="flex min-h-screen flex-col items-center justify-center bg-gray-50 py-12">
 	<div class="mx-auto max-w-2xl px-6">
 		<!-- Logo -->
 		<div class="mb-8">
@@ -39,13 +49,9 @@
 		<!-- Subtitle -->
 		<div class="mx-auto prose prose-lg mb-12">
 			<p>
-				<!-- 
-              The <strong> tag gives the project name strong importance, 
-              indicating it's a key term. 
-            -->
 				<strong>Jontrokotha</strong>, which translates to "Machine Stories" or "Tech Tales," is a
-				social media platform dedicated to making technology news accessible to the Bengali
-				speakers.
+				social media platform dedicated to making technology news accessible to Bengali speakers,
+				while also making tech and AI fun, engaging, and inspiring for the youth.
 			</p>
 
 			<p>
