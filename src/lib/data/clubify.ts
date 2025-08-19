@@ -14,7 +14,7 @@ export const designations = [
     "Vice Table",
     "Vice Chair",
     "Chief Chaos Officer",
-    "Head of Excuses",
+    "Somonnoyok",
     "Master of Yawns",
     "Chief Fun Officer"
 ]
@@ -31,7 +31,7 @@ export const clubs = [
     "Tea Lovers Club (TLC)",
     "Bhallagena Federation (BF)",
     "High CGPA Club (HCGC)",
-    "Kaal Theke Porbo Club",
+    "Kaal Theke Porbo Club (KTPC)",
     "Exam Pichhano Andolon (EPA)",
     "Ctrl+C Ctrl+V Masters (CCVM)",
     "CT Pichhano Club (CTPC)",
