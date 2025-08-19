@@ -31,15 +31,45 @@
 <div class="flex-1">
 	<div class="mx-auto flex max-w-3xl flex-1 flex-col">
 		<div class="p-6 sm:p-8">
-			<!-- Minimalist Header -->
-			<div class="mb-8">
-				<h2 class="text-2xl tracking-tight text-zinc-900 md:text-3xl">
-					Which Club Do You Belong To? 🤔
-				</h2>
-				<p class="mt-2 text-base text-zinc-500">
-					Yes, you do belong to a club. And we shall help you find it! Fill in the details and let
-					us do our magic. 🪄✨
+			<!-- Header -->
+			<div class="mb-8 text-center">
+				<h1 class="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl lg:text-5xl">
+					🎯 Discover Your Perfect Club
+				</h1>
+				<p class="mx-auto mt-4 max-w-2xl text-lg leading-8 text-zinc-600">
+					🌟 Everyone belongs somewhere! Share your details and let our AI algorithm analyze your
+					personality to find the club that's meant for you. 🤖✨
 				</p>
+			</div>
+
+			<!-- Chrome Recommendation Banner -->
+			<div class="mb-6 rounded-xl border border-blue-200 bg-blue-50 p-4">
+				<div class="flex items-start gap-3">
+					<div class="flex-shrink-0">
+						<svg
+							class="h-6 w-6 text-blue-600"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+							/>
+						</svg>
+					</div>
+					<div class="flex-1">
+						<h3 class="text-sm font-semibold text-blue-900">
+							For the best experience, use Google Chrome
+						</h3>
+						<p class="mt-1 text-sm text-blue-700">
+							Features like sharing and downloading work best in Google Chrome. Other browsers may
+							have limited functionality.
+						</p>
+					</div>
+				</div>
 			</div>
 
 			<form
@@ -51,7 +81,9 @@
 			>
 				<!-- Name Input with Icon Inside -->
 				<div>
-					<label for="name" class="mb-2 block text-sm font-medium text-zinc-700"> Your Name </label>
+					<label for="name" class="mb-2 block text-sm font-medium text-zinc-700">
+						👤 Your Name
+					</label>
 					<div class="relative">
 						<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5">
 							<UserIcon class="h-5 w-5 text-zinc-400" />
@@ -60,7 +92,7 @@
 							id="name"
 							type="text"
 							bind:value={name}
-							placeholder="e.g., Ricky Barua"
+							placeholder="e.g., Ricky Barua 😊"
 							class="w-full rounded-xl border border-zinc-200 bg-white py-3 pr-3.5 pl-11 text-base text-zinc-800 shadow-sm transition placeholder:text-zinc-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/50 focus:outline-none"
 							required
 						/>
@@ -70,7 +102,7 @@
 				<!-- Institution Input with Icon Inside -->
 				<div>
 					<label for="institution" class="mb-2 block text-sm font-medium text-zinc-700">
-						Institution
+						🏫 Institution
 					</label>
 					<div class="relative">
 						<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5">
@@ -80,7 +112,7 @@
 							id="institution"
 							type="text"
 							bind:value={institution}
-							placeholder="e.g., Chittagong University of Engineering & Technology"
+							placeholder="e.g., Chittagong University of Engineering & Technology 🎓"
 							class="w-full rounded-xl border border-zinc-200 bg-white py-3 pr-3.5 pl-11 text-base text-zinc-800 shadow-sm transition placeholder:text-zinc-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/50 focus:outline-none"
 							required
 						/>
@@ -91,7 +123,7 @@
 				<div>
 					<label class="mb-2 flex items-center gap-2 text-sm font-medium text-zinc-700">
 						<UploadIcon class="h-4 w-4" />
-						Your Portrait
+						Your Portrait 📸
 					</label>
 					{#if imageFile}
 						<!-- State after file is selected -->
@@ -117,8 +149,8 @@
 							class="group relative flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-zinc-300 bg-white px-5 py-10 ring-1 ring-black/0 transition hover:border-indigo-300 hover:bg-indigo-50/50 hover:ring-black/5"
 						>
 							<UploadCloudIcon class="h-10 w-10 text-zinc-400 group-hover:text-indigo-500" />
-							<p class="mt-3 text-sm font-semibold text-zinc-700">Click or drag to upload</p>
-							<p class="mt-1 text-xs text-zinc-500">PNG, JPG, or WEBP</p>
+							<p class="mt-3 text-sm font-semibold text-zinc-700">📤 Click or drag to upload</p>
+							<p class="mt-1 text-xs text-zinc-500">📷 PNG, JPG, or WEBP</p>
 							<input
 								id="image-upload"
 								type="file"
@@ -139,7 +171,7 @@
 				>
 					{#if isLoading}
 						<LoaderIcon class="h-5 w-5 animate-spin" />
-						<span>Please Wait...</span>
+						<span>⏳ Please Wait...</span>
 					{:else}
 						<span> ✨ Let's Go! </span>
 					{/if}
@@ -147,7 +179,7 @@
 
 				{#if isLoading}
 					<div transition:slide class="mt-4 text-center text-sm text-balance text-zinc-500">
-						We're running on a cheap server. Please give us a few seconds.
+						💸 We're running on a cheap server. Please give us a few seconds. ⏰
 					</div>
 				{/if}
 			</form>

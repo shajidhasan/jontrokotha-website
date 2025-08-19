@@ -15,6 +15,7 @@
 	import confetti from 'canvas-confetti';
 	import { toPng } from 'html-to-image';
 	import { slugify } from '$lib/utilities';
+	import Share2Icon from '@lucide/svelte/icons/share-2';
 
 	interface Props {
 		data: PhotocardData;
@@ -44,10 +45,8 @@
 	const downloadCard = async () => {
 		if (!photocardDiv) return;
 
-		const canUseDownloadAttr = 'download' in document.createElement('a');
-
-		if (!canUseDownloadAttr) {
-			alert('Downloading is not supported in your browser. Please try again with Google Chrome.');
+		if (!navigator.share) {
+			alert('🌐 Please use Google Chrome browser to share this image for the best experience!');
 			return;
 		}
 
@@ -71,7 +70,7 @@
 
 		// Check if Web Share API is available
 		if (!navigator.share) {
-			alert('You must use Google Chrome browser to share this image.');
+			alert('🌐 Please use Google Chrome browser to share this image for the best experience!');
 			return;
 		}
 
@@ -95,8 +94,8 @@
 
 			// Share using Web Share API
 			await navigator.share({
-				title: 'My Clubify Result',
-				text: 'Check out which club you belong to at: https://jontrokotha.live/clubify',
+				title: '🎯 My Clubify Result',
+				text: '🌟 Check out which club you belong to! Find your perfect match at: https://jontrokotha.live/clubify 🎪✨',
 				files: [file]
 			});
 
@@ -104,7 +103,7 @@
 		} catch (error) {
 			sharing = false;
 			if (error instanceof Error && error.name !== 'AbortError') {
-				alert('Failed to share the image. Please try again.');
+				alert('📱 Oops! Failed to share the image. Please try again.');
 			}
 		}
 	};
@@ -173,9 +172,14 @@
 <div class="flex-1">
 	<div class="mx-auto flex max-w-3xl flex-col">
 		<div class="p-4 sm:p-6">
-			<div class="mb-6">
-				<h2 class="text-3xl tracking-tight text-zinc-900">Congratulations!</h2>
-				<p class="mt-2 text-base text-zinc-500">You're in a club now!</p>
+			<div class="mb-8 text-center">
+				<h1 class="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl lg:text-5xl">
+					Congratulations! 🎊
+				</h1>
+				<p class="mx-auto mt-4 max-w-2xl text-lg leading-8 text-balance text-zinc-600">
+					We have found the best club for you! 🎉 Share it with your friends and see if they agree.
+					🤔
+				</p>
 			</div>
 
 			<!-- Card Display -->
@@ -198,7 +202,7 @@
 			</div>
 
 			<!-- Action Area -->
-			<div class="mt-6 space-y-3">
+			<div class="mt-8 space-y-3">
 				<!-- Primary CTA -->
 				<button
 					onclick={onShare}
@@ -208,17 +212,7 @@
 					{#if sharing}
 						<LoaderIcon class="h-4 w-4 animate-spin" />
 					{:else}
-						<svg
-							role="img"
-							viewBox="0 0 24 24"
-							xmlns="http://www.w3.org/2000/svg"
-							class="size-4 md:size-6"
-						>
-							<path
-								fill="currentColor"
-								d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92S19.61 16.08 18 16.08z"
-							/></svg
-						>
+						<Share2Icon class="size-4 md:size-6" />
 					{/if}
 					<span> Share Your Result </span>
 				</button>
@@ -230,15 +224,15 @@
 						class="flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:bg-zinc-50 focus-visible:ring-2 focus-visible:ring-zinc-300 focus-visible:outline-none"
 					>
 						<RefreshCwIcon class={`h-4 w-4 ${randomizing ? 'animate-spin' : ''}`} />
-						Try Again
+						<span> Try Again </span>
 					</button>
 
 					<button
 						onclick={downloadCard}
-						class="inline-flex items-center gap-1 text-xs font-medium text-zinc-400 underline decoration-dotted underline-offset-4 transition-colors hover:text-zinc-600"
+						class="inline-flex items-center gap-1 text-xs font-medium text-zinc-600 underline decoration-dotted underline-offset-4 transition-colors hover:text-zinc-800"
 					>
 						<DownloadIcon class="h-4 w-4" />
-						Download as image
+						<span> Download as image </span>
 					</button>
 				</div>
 			</div>
