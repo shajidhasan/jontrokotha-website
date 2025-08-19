@@ -36,7 +36,8 @@ export const clubs = [
     "Ctrl+C Ctrl+V Masters (CCVM)",
     "CT Pichhano Club (CTPC)",
     "ChatGPT Users Club (CGC)",
-    "Reels Watchers Association (RWA)"
+    "Reels Watchers Association (RWA)",
+    "Proxy Dish Association (PDA)"
 ]
 
 export const getRandomDesignation = () => {
