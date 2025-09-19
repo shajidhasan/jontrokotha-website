@@ -50,6 +50,7 @@
 		"@lucide/svelte": "^0.537.0",
 		"canvas-confetti": "^1.9.3",
 		"html-to-image": "^1.11.13",
+		"openai": "^5.21.0",
 		"svelte-5-french-toast": "^2.0.6"
 	}
 }

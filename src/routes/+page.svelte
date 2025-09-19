@@ -11,16 +11,6 @@
 	/>
 </svelte:head>
 
-<div class="w-full bg-violet-600 text-white">
-	<a
-		href="/clubify"
-		class="mx-auto block max-w-2xl px-6 py-2.5 text-center font-medium hover:underline"
-		aria-label="Find out which club you belong to - Clubify"
-	>
-		Find out which club you belong to - Clubify
-	</a>
-</div>
-
 <main class="flex min-h-screen flex-col items-center justify-center bg-gray-50 py-12">
 	<div class="mx-auto max-w-2xl px-6">
 		<!-- Logo -->
