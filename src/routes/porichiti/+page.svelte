@@ -21,15 +21,15 @@
 	let compositionRef: HTMLElement;
 
 	const loadingMessages = [
-		'Brewing pixels…',
-		'Rendering…',
-		'Almost there…',
-		'Magic happening…',
-		'Dusting pixels…',
-		'In the oven…',
-		'Synthesizing…',
-		'Compiling art…',
-		'Painting…'
+		'Brewing pixels...',
+		'Rendering...',
+		'Almost there...',
+		'Magic happening...',
+		'Dusting pixels...',
+		'In the oven...',
+		'Synthesizing...',
+		'Compiling art...',
+		'Painting...'
 	];
 
 	let currentLoadingMessage = loadingMessages[0];
@@ -221,7 +221,6 @@
 						</div>
 					{/if}
 
-					<!-- CONDITIONALLY SHOW BUTTON -->
 					{#if selectedFile}
 						<div class="flex gap-4">
 							<button
@@ -232,7 +231,6 @@
 							>
 								{#if isProcessing}
 									<Loader2 class="h-4 w-4 animate-spin" />
-									<!-- MODIFIED: Use dynamic loading message -->
 									<span>{currentLoadingMessage}</span>
 								{:else}
 									Generate My CUET Selfie!
@@ -272,7 +270,7 @@
 						<img
 							src={processedImageData}
 							alt="Your pixelated self"
-							class="absolute bottom-0 left-10 z-10 h-1/2 object-contain"
+							class="absolute bottom-0 left-10 z-10 h-2/3 object-contain"
 						/>
 					</div>
 
