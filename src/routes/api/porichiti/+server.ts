@@ -10,31 +10,27 @@ const openai = new OpenAI({
 
 export const POST: RequestHandler = async ({ request }) => {
     try {
-        const formData = await request.formData();
-        const image = formData.get('image') as File;
+        const { image: dataUrl, mimeType } = await request.json();
 
-        if (!image) {
+        if (!dataUrl) {
             return json({ error: 'No image provided' }, { status: 400 });
         }
 
-        if (!image.type.startsWith('image/')) {
+        if (!mimeType || !mimeType.startsWith('image/')) {
             return json({ error: 'Invalid file type. Please upload an image.' }, { status: 400 });
         }
 
-        if (image.size > 10 * 1024 * 1024) {
+        // Extract base64 data from data URL
+        const base64Data = dataUrl.split(',')[1];
+        if (!base64Data) {
+            return json({ error: 'Invalid image data format' }, { status: 400 });
+        }
+
+        // Calculate approximate file size from base64 string
+        const approximateSize = (base64Data.length * 3) / 4;
+        if (approximateSize > 10 * 1024 * 1024) {
             return json({ error: 'File size too large. Maximum size is 10MB.' }, { status: 400 });
         }
-
-        const arrayBuffer = await image.arrayBuffer();
-        const uint8Array = new Uint8Array(arrayBuffer);
-
-        let binary = '';
-        for (let i = 0; i < uint8Array.length; i++) {
-            binary += String.fromCharCode(uint8Array[i]);
-        }
-        const base64 = btoa(binary);
-        const mimeType = image.type;
-        const dataUrl = `data:${mimeType};base64,${base64}`;
 
         const completion = await openai.chat.completions.create({
             model: "google/gemini-2.5-flash-image-preview",

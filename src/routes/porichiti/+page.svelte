@@ -9,6 +9,7 @@
 	import UploadCloud from '@lucide/svelte/icons/upload-cloud';
 	import Undo2 from '@lucide/svelte/icons/undo-2';
 	import Loader2 from '@lucide/svelte/icons/loader-2';
+	import imageCompression from 'browser-image-compression';
 
 	let selectedFile: File | null = null;
 	let previewUrl: string | null = null;
@@ -59,7 +60,7 @@
 		}
 	});
 
-	function handleFileSelect(event: Event) {
+	const handleFileSelect = async (event: Event) => {
 		const target = event.target as HTMLInputElement;
 		const file = target.files?.[0];
 
@@ -73,17 +74,28 @@
 				return;
 			}
 
-			selectedFile = file;
-			errorMessage = '';
+			const options = {
+				maxSizeMB: 0.5,
+				maxWidthOrHeight: 500,
+				useWebWorker: true
+			};
 
-			if (previewUrl) {
-				URL.revokeObjectURL(previewUrl);
+			try {
+				const compressedFile = await imageCompression(file, options);
+				selectedFile = compressedFile;
+				errorMessage = '';
+
+				if (previewUrl) {
+					URL.revokeObjectURL(previewUrl);
+				}
+				previewUrl = URL.createObjectURL(compressedFile);
+			} catch (error) {
+				console.log(error);
 			}
-			previewUrl = URL.createObjectURL(file);
 		}
-	}
+	};
 
-	async function handleSubmit() {
+	const handleSubmit = async () => {
 		if (!selectedFile) {
 			errorMessage = 'First, select an image!';
 			return;
@@ -94,12 +106,23 @@
 		processedImageData = null;
 
 		try {
-			const formData = new FormData();
-			formData.append('image', selectedFile);
+			// Convert file to base64 using FileReader
+			const dataUrl = await new Promise<string>((resolve, reject) => {
+				const reader = new FileReader();
+				reader.onload = () => resolve(reader.result as string);
+				reader.onerror = reject;
+				reader.readAsDataURL(selectedFile!);
+			});
 
 			const response = await fetch('/api/porichiti', {
 				method: 'POST',
-				body: formData
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					image: dataUrl,
+					mimeType: selectedFile.type
+				})
 			});
 
 			if (!response.ok) {
@@ -117,16 +140,16 @@
 		} finally {
 			isProcessing = false;
 		}
-	}
+	};
 
-	async function downloadComposition() {
+	const downloadComposition = async () => {
 		if (!compositionRef) return;
 
 		isDownloading = true;
 		try {
 			const dataUrl = await toPng(compositionRef, {
 				quality: 1.0,
-				pixelRatio: 2
+				pixelRatio: 4
 			});
 			const link = document.createElement('a');
 			link.download = 'porichiti-24-masterpiece.png';
@@ -138,9 +161,9 @@
 		} finally {
 			isDownloading = false;
 		}
-	}
+	};
 
-	function resetForm() {
+	const resetForm = () => {
 		selectedFile = null;
 		if (previewUrl) {
 			URL.revokeObjectURL(previewUrl);
@@ -153,7 +176,7 @@
 		if (fileInput) {
 			fileInput.value = '';
 		}
-	}
+	};
 
 	const buttonBaseClasses =
 		'flex items-center justify-center gap-2 border-2 border-black px-4 py-2 text-xs font-medium transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 sm:px-6 sm:py-3 sm:text-sm shadow-[4px_4px_0px_#000]';
