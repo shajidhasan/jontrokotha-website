@@ -205,7 +205,7 @@
 							class="hidden"
 							disabled={isProcessing}
 						/>
-						<p class="mt-2 text-center text-xs text-gray-500">A potrait, looking at the camera</p>
+						<p class="mt-4 text-center text-xs text-gray-500">A portrait, looking at the camera</p>
 
 						{#if errorMessage}
 							<p class="mt-4 text-center text-sm text-red-600">{errorMessage}</p>
