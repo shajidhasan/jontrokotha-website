@@ -106,7 +106,6 @@
 		processedImageData = null;
 
 		try {
-			// Convert file to base64 using FileReader
 			const dataUrl = await new Promise<string>((resolve, reject) => {
 				const reader = new FileReader();
 				reader.onload = () => resolve(reader.result as string);
@@ -293,7 +292,7 @@
 						<img
 							src={processedImageData}
 							alt="Your pixelated self"
-							class="absolute bottom-0 left-10 z-10 h-2/3 object-contain"
+							class="absolute bottom-0 left-0 z-10 h-2/3 object-contain"
 						/>
 					</div>
 
