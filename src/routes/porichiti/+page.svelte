@@ -8,6 +8,7 @@
 	import cloud2 from '$lib/assets/porichiti/cloud_2.png';
 	import cloud3 from '$lib/assets/porichiti/cloud_3.png';
 	import cloud4 from '$lib/assets/porichiti/cloud_4.png';
+	import jdLogo from '$lib/assets/porichiti/jd_logo.png';
 
 	import { toPng } from 'html-to-image';
 	import { onDestroy } from 'svelte';
@@ -359,6 +360,11 @@
 					>
 						<img src={porichitiBg} alt="Pixel Art Background" class="h-full w-full object-cover" />
 						<img
+							src={jdLogo}
+							alt="Jontrokotha Logo"
+							class="absolute top-4 right-4 z-100 w-[10%] object-contain"
+						/>
+						<img
 							src={processedImageData}
 							alt="Your pixelated self"
 							class="absolute bottom-0 left-0 z-10 h-3/5 object-contain"
@@ -417,7 +423,7 @@
 							<span>Start Over</span>
 						</button>
 					</div>
-					<p class="mt-4 text-xs text-balance text-pretty text-gray-500 italic">
+					<p class="mt-4 text-xs text-pretty text-gray-500 italic">
 						Having trouble downloading? This app works best on Google Chrome.
 					</p>
 				</div>
