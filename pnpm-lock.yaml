@@ -29,6 +29,9 @@ importers:
       html-to-image:
         specifier: ^1.11.13
         version: 1.11.13
+      node-appwrite:
+        specifier: ^19.0.0
+        version: 19.0.0
       openai:
         specifier: ^5.21.0
         version: 5.21.0
@@ -1167,6 +1170,12 @@ packages:
 
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
+
+  node-appwrite@19.0.0:
+    resolution: {integrity: sha512-Uk55z9OBRiI04GTo+WA5UsHzohtTmWUgzut5Q5lK4n5gWDC1H5HhSJdGJ0qk5RpW1OVvzU6RU9LNnZ4UWpiY+Q==}
+
+  node-fetch-native-with-agent@1.7.2:
+    resolution: {integrity: sha512-5MaOOCuJEvcckoz7/tjdx1M6OusOY6Xc5f459IaruGStWnKzlI1qpNgaAwmn4LmFYcsSlj+jBMk84wmmRxfk5g==}
 
   openai@5.21.0:
     resolution: {integrity: sha512-E9LuV51vgvwbahPJaZu2x4V6SWMq9g3X6Bj2/wnFiNfV7lmAxYVxPxcQNZqCWbAVMaEoers9HzIxpOp6Vvgn8w==}
@@ -2472,6 +2481,12 @@ snapshots:
   nanoid@3.3.11: {}
 
   natural-compare@1.4.0: {}
+
+  node-appwrite@19.0.0:
+    dependencies:
+      node-fetch-native-with-agent: 1.7.2
+
+  node-fetch-native-with-agent@1.7.2: {}
 
   openai@5.21.0: {}
 
