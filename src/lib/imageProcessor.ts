@@ -7,7 +7,7 @@ const loadImageFromBase64 = (base64: string): Promise<HTMLImageElement> => {
     });
 }
 
-export const processImage = async (base64Image: string, tolerance: number = 10, minAreaPercentage: number = 10): Promise<string> => {
+export const processImage = async (base64Image: string, tolerance: number = 10, minAreaPercentage: number = 5): Promise<string> => {
     try {
 
         const image = await loadImageFromBase64(base64Image);
