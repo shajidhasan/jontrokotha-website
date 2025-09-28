@@ -395,7 +395,7 @@
 							show!
 						</p>
 						<a
-							href="https://fb.com/joyoddhoney"
+							href="https://dub.sh/porichiti"
 							target="_blank"
 							rel="noopener noreferrer"
 							class={announcementButtonClasses}
